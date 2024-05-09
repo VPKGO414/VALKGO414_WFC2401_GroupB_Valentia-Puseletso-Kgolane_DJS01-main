@@ -14,11 +14,16 @@ const fuel = 5000; // remaining fuel (kg)
 const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
 
-const newDistance = distance + (velocity * (time / 3600)) //calcultes new distance
+const newDistance = distance + (velocity * (time / 3600)); //calcultes new distance
 
-const remainingFuel = fuel - (fuelBurnRate * time) //calculates remaining fuel
-
-const calNewVel = (vel, acc, time) => //calculates new velocity based on acceleration
+const remainingFuel = fuel - (fuelBurnRate * time); //calculates remaining fuel
+//calculates new velocity based on acceleration
+const calNewVel = (vel, acc, time) => {
+  if (typeof vel !== 'number' || typeof acc !== 'number' || typeof time !== 'number') {
+    throw new Error ('Invalid parameters: velocity, acceleration, and time must be numbers.');
+  }
+  return ( vel + (acc * 3.6 * time)); // Convereted time into hours for velocity calculation
+}
 
 // Pick up an error with how the function below is called and make it robust to such errors
 calcNewVel = (vel, acc, time) => { 
