@@ -25,14 +25,11 @@ const calNewVel = (vel, acc, time) => {
   return ( vel + (acc * 3.6 * time)); // Convereted time into hours for velocity calculation
 }
 
-// Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (vel, acc, time) => { 
-  return vel + (acc*time)
-}
+const newVelocity = calNewVel(velocity, acceleration, time);
 
-console.log(`Corrected New Velocity: ${vel2} km/h`);
-console.log(`Corrected New Distance: ${d2} km`);
-console.log(`Corrected Remaining Fuel: ${rf} kg`);
+console.log(`Corrected New Velocity: ${newVelocity} km/h`);
+console.log(`Corrected New Distance: ${newDistance} km`);
+console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
 
 
 
